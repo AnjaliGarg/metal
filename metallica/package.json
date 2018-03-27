@@ -1,0 +1,40 @@
+{
+  "name": "demo",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001/",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "foreman": "^2.0.0",
+    "marked": "^0.3.17",
+    "mongoose": "^5.0.9",
+    "nodemon": "^1.17.1",
+    "oauth2orize": "^1.11.0",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-oauth2-client-password": "^0.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "react-table": "^6.8.0",
+    "react-toggle-display": "^2.2.0",
+    "semantic-ui": "^2.3.1",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react-less-loader": "^0.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start-dev": "nf start -p 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "semantic-ui-less": "^2.3.1",
+    "semantic-ui-react": "^0.79.0"
+  }
+}
