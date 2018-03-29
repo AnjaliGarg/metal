@@ -11,7 +11,7 @@ import "semantic-ui-css/semantic.css";
 import './App.css';
 import {Header,Container,Menu} from "semantic-ui-react";
 import TabBarContainer from "./tabs/TabBarContainer";
-import Trades from "./features/Trade";
+import Trades from "./features/TradeUpdated";
 const Transfers = () => <div>Transfers content</div>;
 const Transports = () => <div>Transports content</div>;
 
