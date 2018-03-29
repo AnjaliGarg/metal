@@ -14,4 +14,4 @@ Frontend main file to start with:
 index.js
 and its base html file is in public folder-> index.html
 
-models/trade.js -> API call insights trade with Mongo
+models/tradeUpdated.js -> API call insights trade with Mongo
