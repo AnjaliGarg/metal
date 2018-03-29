@@ -5,7 +5,7 @@ import {
     Form,
     Dropdown,
     Segment,
-    Checkbox
+    Checkbox, Button
 } from "semantic-ui-react";
 
 const FACTIONS = [
@@ -14,12 +14,93 @@ const FACTIONS = [
     {value : "wd", text : "Wolf's Dragoons"},
 ];
 
-const Trade = () => {
+const Trade = (props) => {
+    // TODO: Check while binding; Updated the access method of the commodity table
+    const columns = [ { Header: "Trade Date", accessor: "tradeDate" }, { Header: "Commodity", id: "lastName", accessor:  "lastName" }, { Header: "Side", accessor: "side" }, { Header: "Qty (MT)", accessor: "qty" }, { Header: "Price(/MT) ", accessor: "price" }, { Header: "Counterparty", accessor: "counterparty" }, { Header: "Location", accessor: "location" } ]
+
+    var data = [{
+        tradeDate: '2018/01/30',
+        lastName: 'AL',
+        side: "Buy",
+        qty: 100,
+        price: 180.6,
+        counterparty: "Garlic",
+        location: "Delhi"
+    },
+        {
+            tradeDate: '2018/01/30',
+            lastName: 'AL',
+            side: "Buy",
+            qty: 100,
+            price: 180.6,
+            counterparty: "Fan",
+            location: "Delhi"
+        },
+        {
+            tradeDate: '2018/01/30',
+            lastName: 'AL',
+            side: "Buy",
+            qty: 100,
+            price: 180.6,
+            counterparty: "Yes",
+            location: "Delhi"
+        },
+        {
+            tradeDate: '2018/01/30',
+            lastName: 'AL',
+            side: "Buy",
+            qty: 100,
+            price: 180.6,
+            counterparty: "Jupyter",
+            location: "Delhi"
+        },
+        {
+            tradeDate: '2018/01/30',
+            lastName: 'AL',
+            side: "Buy",
+            qty: 100,
+            price: 180.6,
+            counterparty: "Arial",
+            location: "Delhi"
+        },
+        {
+            tradeDate: '2018/01/30',
+            lastName: 'AL',
+            side: "Buy",
+            qty: 100,
+            price: 180.6,
+            counterparty: "Christmas",
+            location: "Delhi"
+        }];
+
+
+    var handleSubmit = (e, {formData}) => {
+        e.preventDefault();
+
+        console.log("Inside the submit function")
+        debugger;
+
+        //
+        // Potentially need to manually validate fields here?
+        //
+
+        // Send a POST request to the server with the formData
+        // this.props.dispatch(signUp(formData)).then(({isAuthenticated}) => {
+        //     if (isAuthenticated) {
+        //         // Redirect to the home page if the user is authenticated
+        //         this.props.router.push('/');
+        //     }
+        // }
+    }
+
+    // handleFilter = () => {
+    //     var a = this.refs.a.selcted;
+    // }
 
     return (
 	<div>
     <Segment attached="bottom">
-        <Form size="small">
+        <Form size="small" onSubmit={handleSubmit}>
 
             <div className="twelve fields">
 
@@ -44,7 +125,7 @@ const Trade = () => {
                 <Form.Field name="side" width={3}>
                     <label>Side</label>
 
-                    <Checkbox value="divyataken" label='Buy' />
+                    <Checkbox value="divyataken"  label='Buy' />
                     <Checkbox value="BhejaFry" label='Sell' />
 
                 </Form.Field>
@@ -58,14 +139,17 @@ const Trade = () => {
                     <Dropdown selection options={FACTIONS} value="wd" />
 
                 </Form.Field>
+                <br/>
+                <Button type='submit' >CLEAR</Button>
+                <Button type='submit' >SEARCH</Button>
 
             </div>
         </Form>
     </Segment>
     <div class='column'>
         <div className="six fields ctmTable">
-            <ReactTable columns={ [ { Header: "Trade Date", accessor: "tradeDate" }, { Header: "Commodity", id: "lastName", accessor: d=> d.lastName }, { Header: "Side", accessor: "side" }, { Header: "Qty (MT)", accessor: "qty" }, { Header: "Price(/MT) ", accessor: "price" }, { Header: "Counterparty", accessor: "counterparty" }, { Header: "Location", accessor: "location" } ]
-                } className="-striped -highlight" />
+            <ReactTable columns={columns
+                } data={data}  className="-striped -highlight" />
                 <br />
         </div>
         <div class='four fields tradeDetail ui grid'>
@@ -74,7 +158,7 @@ const Trade = () => {
     </div>
 
 </div>
-		
+
     );
 }
 
