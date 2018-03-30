@@ -33,9 +33,9 @@ var tradeSchema = mongo.Schema({
     },
     tradeId:{
         type:String,
-        default:uuidv1(),
         unique : true,
-        dropDups: true
+        dropDups: true,
+        default:uuidv1
     },
     location:{ type: String, default:'' },
     counterParty:{ type: String, default:'' },
@@ -43,7 +43,7 @@ var tradeSchema = mongo.Schema({
 });
 
 
-var trade=module.exports=mongo.model('trade',tradeSchema);
+var trade = module.exports=mongo.model('trade',tradeSchema);
 
 //get all trades
 module.exports.getTrades = function(callback,lim){
@@ -56,33 +56,28 @@ module.exports.getTradesById = function(id,callback){
 }
 
 // Creates a trade entry;
-// Though this will make an entry in the db with default values
-// even if some values don't match the criteria and fail
 module.exports.createTrade = function(tradeObj,res){
-  trade.create(tradeObj, res,function(err, result){
-      if(err) {
-          console.log("Error couu" + err._message)
-          console.log(err)
-          res.send({"success": false, "data": err._message});
-      }   else {
-          console.log("Taste the success!");
-          console.log(result)
-          res.send({"success": true, "data": "Doc with Id - " + result.tradeId + " inserted in DB successfully!"});
-      }
-  });
+    var addEntry = new trade(tradeObj)
+    addEntry.save()
+        .then(item=>{
+            console.log("Fresh added entry is ")
+            console.log(item)
+            res.send({"success": true, "data": "Doc with Id - " + item.tradeId + " inserted in DB successfully!"})
+        })
+        .catch(err => {
+            res.status(400).send({"success": false, "data": err._message});
+        });
 }
 
 // Assumption: Only price allowed to be updated
+// Returning updated values but not saving it in db :P
 module.exports.updateTrade = function(tradeObj,res){
-    console.log("Here is the object being sent")
-    console.log(tradeObj)
   var query={tradeId:tradeObj.tradeId};
   console.log(query)
-  var update={
-    price : tradeObj.price
-  }
-  console.log("Fine")
-  trade.findOneAndUpdate(query,update,function(err, result){
+  console.log(tradeObj)
+  // This needs to be updated
+  trade.findOneAndUpdate(query,
+      tradeObj,{new: false, upsert: true},function(err, result){
       console.log("Process")
       if(err) {
           res.send({"success": false, "data": err._message});
