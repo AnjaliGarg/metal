@@ -24,7 +24,8 @@
     "react-toggle-display": "^2.2.0",
     "semantic-ui": "^2.3.1",
     "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react-less-loader": "^0.2.0"
+    "semantic-ui-react-less-loader": "^0.2.0",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
