@@ -7,7 +7,7 @@ const uuidv1 = require('uuid/v1');
 
 // TODO: Update the Date type to timestamp
 // No explicit unique key created; However, trade id is given unique value by default
-// And if tried to enter duplicate value by manually entering, old doc will get deleted
+// And if tried to enter duplicate value; It will generate the error
 var tradeSchema = mongo.Schema({
     side:{
         type:String,
@@ -42,20 +42,25 @@ var tradeSchema = mongo.Schema({
     commodity:{ type: String, default:'' }
 });
 
-
+// Schema Model - Mongoose
 var trade = module.exports=mongo.model('trade',tradeSchema);
 
-//get all trades
+// Get all trades
 module.exports.getTrades = function(callback,lim){
   trade.find(callback).limit(lim);
 }
 
-//get trade by id
-module.exports.getTradesById = function(id,callback){
-  trade.findById(id,callback);
+// Returns the trade row by trade id
+module.exports.fetchTrade = function(id,res){
+  trade.findOne({'tradeId':id},function (err, result) {
+      if(err)
+          res.send({"success":false, "error":"Error Occurred | " + err._message})
+      else
+          res.send({"success":true, "data":result})
+  });
 }
 
-// Creates a trade entry;
+// Creates a trade entry
 module.exports.createTrade = function(tradeObj,res){
     var addEntry = new trade(tradeObj)
     addEntry.save()
@@ -65,11 +70,10 @@ module.exports.createTrade = function(tradeObj,res){
             res.send({"success": true, "data": "Doc with Id - " + item.tradeId + " inserted in DB successfully!"})
         })
         .catch(err => {
-            res.status(400).send({"success": false, "data": err._message});
+            res.status(400).send({"success":false, "error":"Error Occurred | " +  err._message});
         });
 }
 
-// Assumption: Only price allowed to be updated
 // Returning updated values but not saving it in db :P
 module.exports.updateTrade = function(tradeObj,res){
   var query={tradeId:tradeObj.tradeId};
@@ -80,7 +84,7 @@ module.exports.updateTrade = function(tradeObj,res){
       tradeObj,{new: false, upsert: true},function(err, result){
       console.log("Process")
       if(err) {
-          res.send({"success": false, "data": err._message});
+          res.send({"success":false, "error":"Error Occurred | " +  err._message});
       }   else {
           console.log(result)
           res.send({"success": true, "data": "Doc with Id - updated successfully!"});
@@ -88,7 +92,15 @@ module.exports.updateTrade = function(tradeObj,res){
   });
 }
 
-module.exports.deleteTrade = function(id,callback){
-  var query={_id:id};
-  trade.remove(query,callback);
+// Delete the trade row having the passed trade id
+module.exports.deleteTrade = function(id,res,callback) {
+    var query = {tradeId: id};
+    trade.remove(query, function (err, item) {
+    }).exec()
+        .then(result => {
+            res.send({"success": true, "data": "Doc deleted successfully!"});
+        })
+        .catch(err => {
+            res.send({"success":false, "error":"Error Occurred | " +  err._message})
+        });
 }

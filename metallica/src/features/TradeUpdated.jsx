@@ -207,7 +207,7 @@ class Trade extends React.Component {
                                 <label>Location</label>
                                 <Dropdown selection options={FACTIONS} value="wd" ref='location'/>
 
-                            </Form.Field>k
+                            </Form.Field>
                             <br/>
                             <Button type='button' onClick={clearFilters.bind(this)}>CLEAR</Button>
                             <Button type='submit'>SEARCH</Button>

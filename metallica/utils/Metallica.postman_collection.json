@@ -1,0 +1,330 @@
+{
+	"id": "62a2a636-d7d5-42d9-a14c-8bd17a7677fb",
+	"name": "Metallica",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"6104c191-12bc-44f8-a9d9-c74cc28fa751",
+		"e5fe0c6a-d441-44ec-a3e8-2db30887b14f",
+		"0ce05ffe-b510-4d29-9be6-17411051dd03",
+		"8d8b8bd5-068f-4448-a81f-265cc2ec47c6",
+		"ba9bf3fc-0f4c-4aab-a4bb-d2de0f026b4a",
+		"9a38e972-4702-4d44-b61a-69b3a671c2bf"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "0ce05ffe-b510-4d29-9be6-17411051dd03",
+			"name": "DeleteTrade",
+			"url": "http://localhost:3001/deleteTrade/34567",
+			"description": "",
+			"data": [],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "6104c191-12bc-44f8-a9d9-c74cc28fa751",
+			"name": "CreateTrade",
+			"url": "http://localhost:3001/createTrade",
+			"description": "",
+			"data": [
+				{
+					"key": "side",
+					"value": "Buy",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "quantity",
+					"value": "14234",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "price",
+					"value": "420",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tradeDate",
+					"value": "2018-01-30",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "status",
+					"value": "Nominated",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "location",
+					"value": "LondonThumakda",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "counterParty",
+					"value": "Definately",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "commodity",
+					"value": "Yours",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "8d8b8bd5-068f-4448-a81f-265cc2ec47c6",
+			"name": "FetchTrade",
+			"url": "http://localhost:3001/fetchTrade/268ecf40-340e-11e8-a48a-b716ff5f8e4c",
+			"description": "",
+			"data": [],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "9a38e972-4702-4d44-b61a-69b3a671c2bf",
+			"name": "UpdateTrade",
+			"url": "http://localhost:3001/updateTrade",
+			"description": "",
+			"data": [
+				{
+					"key": "price",
+					"value": "67",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tradeId",
+					"value": "bec638c0-33e1-11e8-914c-63c2dbaa3ba6",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba9bf3fc-0f4c-4aab-a4bb-d2de0f026b4a",
+			"name": "FetchAllTrades",
+			"url": "http://localhost:3001/deleteTrade/Anjali",
+			"description": "",
+			"data": [],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e5fe0c6a-d441-44ec-a3e8-2db30887b14f",
+			"name": "UpdateTrade",
+			"url": "http://localhost:3001/updateTrade",
+			"description": "",
+			"data": [
+				{
+					"key": "side",
+					"value": "Buy",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "quantity",
+					"value": "12",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "price",
+					"value": "50",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tradeDate",
+					"value": "2018-01-30",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "status",
+					"value": "Nominated",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "location",
+					"value": "BhujoToJaane",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "counterParty",
+					"value": "DahiK",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "commodity",
+					"value": "kabab",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "tradeId",
+					"value": "268ecf40-340e-11e8-a48a-b716ff5f8e4c",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		}
+	]
+}

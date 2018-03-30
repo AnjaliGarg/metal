@@ -3,19 +3,16 @@ var mongoose = require('mongoose');
 var Trade = require('../models/tradeUpdated');
 var config = require('../config');
 
-
 var url = config.mongoose.uri;
 mongoose.connect(url);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
 module.exports = app => {
-    app.get('/trades', (req, res) => {
-        res.send({
-            express: 'Hello From Express'
-        });
+    app.get('/fetchTrade/:_id', (req, res) => {
+        var id = req.params._id;
+        Trade.fetchTrade(id,res);
     });
 
     /* GET all trades */
@@ -39,6 +36,8 @@ module.exports = app => {
 
     app.post('/createTrade', function(req, res) {
         var trade = req.body;
+        console.log(trade)
+        console.log("Add entry called")
         Trade.createTrade(trade, res);
     });
 
@@ -50,15 +49,6 @@ module.exports = app => {
 
     app.delete('/deleteTrade/:_id', function(req, res) {
         var id = req.params._id;
-        Trade.deleteTrade(id, function(error, tradeObj) {
-            if (error) {
-                throw error;
-            } else {
-                res.json(tradeObj);
-                //res.render('trade', { title: 'All trades' });
-
-            }
-
-        });
+        Trade.deleteTrade(id,res);
     });
 }
