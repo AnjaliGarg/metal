@@ -15,3 +15,6 @@ index.js
 and its base html file is in public folder-> index.html
 
 models/tradeUpdated.js -> API call insights trade with Mongo
+
+Postman JSON collection:
+./utils/Metallica.postman_collection.json
