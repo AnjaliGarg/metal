@@ -1,6 +1,8 @@
 import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import "./customcss.css";
+import Editor from "./Editor"
 import {
     Form,
     Dropdown,
@@ -25,20 +27,58 @@ class Trade extends React.Component {
             esCountry:{},
             dateBasedMetric:{},
             uniqueUser:{},
-            stepSize:""
-        }
+            stepSize:""   ,
+        selectedRow:{counterparty:"",tradeDate:"",side:"",qty:"",price:"",lastName:"",location:""},
+        deleteshow:false
+         }
     }
-
+    onChange(field, value) {
+        this.setState({selectedRow:{[field]: value}});
+    }
+    
+    myDefaultCell()
+    {
+      return 'delete'; 
+    }
+    handleMouseHover() {
+        this.setState(this.deleteshow);
+      }
+    
+      toggleHoverState(state) {
+        return {
+            deleteshow: !state.deleteshow,
+        };
+      }
 
     render() {
-        const columns = [{Header: "Trade Date", accessor: "tradeDate"}, {
-            Header: "Commodity",
-            id: "lastName",
-            accessor: "lastName"
-        }, {Header: "Side", accessor: "side"}, {Header: "Qty (MT)", accessor: "qty"}, {
-            Header: "Price(/MT) ",
-            accessor: "price"
-        }, {Header: "Counterparty", accessor: "counterparty"}, {Header: "Location", accessor: "location"}]
+        
+        const defaultColumn = 
+        {
+          Cell:this.myDefaultCell,
+          Header: 'No Column Header',
+        }
+        const onRowClick = (state, rowInfo, column, instance) => {
+            return {
+                onClick: e => {
+                 
+                    this.setState({ selectedRow:{counterparty:rowInfo.row.counterparty
+                    ,tradeDate:rowInfo.row.tradeDate
+                ,lastName:rowInfo.row.lastName
+            ,side:rowInfo.row.side,
+            qty:rowInfo.row.qty,
+            price:rowInfo.row.price,
+            location:rowInfo.row.location}}  )                }
+            }
+        }
+        
+        const columns = [{Header: "Trade Date", accessor: "tradeDate"},
+         {Header: "Commodity",id: "lastName",accessor: "lastName"}, 
+         {Header: "Side", accessor: "side"},
+          {Header: "Qty(MT)", accessor: "qty"},
+           {Header: "Price(MT) ",accessor: "price"},
+            {Header: "Counterparty", accessor: "counterparty"},
+         {Header: "Location", accessor: "location"},
+         {...defaultColumn,Header: "Delete", accessor: "delete",className: (this.state.deleteshow == true?'showcustom':'hidecustom')}]
 
         // Default table data
         var data = [{
@@ -124,60 +164,7 @@ class Trade extends React.Component {
             // TODO: Make the api call and re-render the table
             debugger;
 
-            var apiData = [{
-                tradeDate: '2018/01/30',
-                lastName: 'AL',
-                side: "Buy",
-                qty: 100,
-                price: 180.6,
-                counterparty: "Garlic",
-                location: "Mumbai"
-            },
-                {
-                    tradeDate: '2018/01/30',
-                    lastName: 'AL',
-                    side: "Buy",
-                    qty: 100,
-                    price: 180.6,
-                    counterparty: "Fan",
-                    location: "Mumbai"
-                },
-                {
-                    tradeDate: '2018/01/30',
-                    lastName: 'AL',
-                    side: "Buy",
-                    qty: 100,
-                    price: 180.6,
-                    counterparty: "Yes",
-                    location: "Mumbai"
-                },
-                {
-                    tradeDate: '2018/01/30',
-                    lastName: 'AL',
-                    side: "Buy",
-                    qty: 100,
-                    price: 180.6,
-                    counterparty: "Jupyter",
-                    location: "Mumbai"
-                },
-                {
-                    tradeDate: '2018/01/30',
-                    lastName: 'AL',
-                    side: "Buy",
-                    qty: 100,
-                    price: 180.6,
-                    counterparty: "Arial",
-                    location: "Mumbai"
-                },
-                {
-                    tradeDate: '2018/01/30',
-                    lastName: 'AL',
-                    side: "Buy",
-                    qty: 100,
-                    price: 180.6,
-                    counterparty: "Christmas",
-                    location: "Mumbai"
-                }];
+           
         }
 
         return (
@@ -220,7 +207,7 @@ class Trade extends React.Component {
                                 <label>Location</label>
                                 <Dropdown selection options={FACTIONS} value="wd" ref='location'/>
 
-                            </Form.Field>
+                            </Form.Field>k
                             <br/>
                             <Button type='button' onClick={clearFilters.bind(this)}>CLEAR</Button>
                             <Button type='submit'>SEARCH</Button>
@@ -231,11 +218,14 @@ class Trade extends React.Component {
                 <div className='column'>
                     <div className="six fields ctmTable">
                         <ReactTable columns={columns
-                        } data={data} className="-striped -highlight"/>
+                        } data={data} className="-striped -highlight" getTrProps={onRowClick} defaultPageSize={5}/>
                         <br/>
                     </div>
                     <div className='four fields tradeDetail ui grid'>
-                        <div className='column'>Lorem Ipsum</div>
+                        <div className='column'>Data Editor</div>
+                    </div>
+                    <div className='four fields tradeDetail ui grid'>
+                        <Editor className='column' selectedRow={this.state.selectedRow} onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
                     </div>
                 </div>
 
