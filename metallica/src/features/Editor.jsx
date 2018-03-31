@@ -14,8 +14,8 @@ class Editor extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
+        event.preventDefault();
+        alert('A name was submitted: ' + this.state.value);
     } 
     
     onFieldChange(event) {
@@ -32,23 +32,23 @@ class Editor extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             CounterProperty:
-            <input type="text" value={this.props.selectedRow.counterparty} onChange={this.onFieldChange.bind(this)} />
+            <input type="text" value={this.props.selectedRow.counterParty} onChange={this.onFieldChange.bind(this)} />
          <br/> </label>
           <label>
           tradeDate:
             <input type="text" value={this.props.selectedRow.tradeDate} onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          lastName:
-            <input type="text" value={this.props.selectedRow.lastName} onChange={this.onFieldChange.bind(this)} />
+          commodity:
+            <input type="text" value={this.props.selectedRow.commodity} onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
           side:
             <input type="text" value={this.props.selectedRow.side} onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          qty:
-            <input type="text" value={this.props.selectedRow.qty} onChange={this.onFieldChange.bind(this)} />
+          quantity:
+            <input type="text" value={this.props.selectedRow.quantity} onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
           price:

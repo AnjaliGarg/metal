@@ -16,8 +16,8 @@ class TradeDetails extends Component{
                 },
                 {
                   Header: "Commodity",
-                  id: "lastName",
-                  accessor: d => d.lastName
+                  id: "commodity",
+                  accessor: d => d.commodity
                 },
 				{
                   Header: "Side",
@@ -25,7 +25,7 @@ class TradeDetails extends Component{
                 },
                 {
                   Header: "Qty (MT)",
-                  accessor: "qty"
+                  accessor: "quantity"
                 },
 				{
                   Header: "Price(/MT) ",

@@ -16,58 +16,58 @@ const FACTIONS = [
 
 const Trade = (props) => {
     // TODO: Check while binding; Updated the access method of the commodity table
-    const columns = [ { Header: "Trade Date", accessor: "tradeDate" }, { Header: "Commodity", id: "lastName", accessor:  "lastName" }, { Header: "Side", accessor: "side" }, { Header: "Qty (MT)", accessor: "qty" }, { Header: "Price(/MT) ", accessor: "price" }, { Header: "Counterparty", accessor: "counterparty" }, { Header: "Location", accessor: "location" } ]
+    const columns = [ { Header: "Trade Date", accessor: "tradeDate" }, { Header: "Commodity", id: "commodity", accessor:  "commodity" }, { Header: "Side", accessor: "side" }, { Header: "Qty (MT)", accessor: "quantity" }, { Header: "Price(/MT) ", accessor: "price" }, { Header: "Counterparty", accessor: "counterparty" }, { Header: "Location", accessor: "location" } ]
 
     var data = [{
         tradeDate: '2018/01/30',
-        lastName: 'AL',
+        commodity: 'AL',
         side: "Buy",
-        qty: 100,
+        quantity: 100,
         price: 180.6,
         counterparty: "Garlic",
         location: "Delhi"
     },
         {
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
             counterparty: "Fan",
             location: "Delhi"
         },
         {
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
             counterparty: "Yes",
             location: "Delhi"
         },
         {
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
             counterparty: "Jupyter",
             location: "Delhi"
         },
         {
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
             counterparty: "Arial",
             location: "Delhi"
         },
         {
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
             counterparty: "Christmas",
             location: "Delhi"

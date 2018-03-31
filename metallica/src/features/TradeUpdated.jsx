@@ -3,6 +3,8 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./customcss.css";
 import Editor from "./Editor"
+import request from "superagent"
+
 import {
     Form,
     Dropdown,
@@ -28,10 +30,74 @@ class Trade extends React.Component {
             dateBasedMetric:{},
             uniqueUser:{},
             stepSize:""   ,
-        selectedRow:{counterparty:"",tradeDate:"",side:"",qty:"",price:"",lastName:"",location:""},
-        deleteshow:false
+        selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:""},
+        deleteshow:false,
+            dataTb: [{
+            tradeDate: '2018/01/30',
+            commodity: 'AL',
+            side: "Buy",
+            quantity: 100,
+            price: 180.6,
+            counterParty: "Garlic",
+            location: "Delhi"
+        },
+            {
+                tradeDate: '2018/01/30',
+                commodity: 'AL',
+                side: "Buy",
+                quantity: 100,
+                price: 180.6,
+                counterParty: "Fan",
+                location: "Delhi"
+            },
+            {
+                tradeDate: '2018/01/30',
+                commodity: 'AL',
+                side: "Buy",
+                quantity: 100,
+                price: 180.6,
+                counterParty: "Yes",
+                location: "Delhi"
+            },
+            {
+                tradeDate: '2018/01/30',
+                commodity: 'AL',
+                side: "Buy",
+                quantity: 100,
+                price: 180.6,
+                counterParty: "Jupyter",
+                location: "Delhi"
+            },
+            {
+                tradeDate: '2018/01/30',
+                commodity: 'AL',
+                side: "Buy",
+                quantity: 100,
+                price: 180.6,
+                counterParty: "Arial",
+                location: "Delhi"
+            },
+            {
+                tradeDate: '2018/01/30',
+                commodity: 'AL',
+                side: "Buy",
+                quantity: 100,
+                price: 180.6,
+                counterParty: "Christmas",
+                location: "Delhi"
+            }]
          }
     }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("Will Receive props called!")
+    }
+
+    componentDidMount() {
+        console.log("Component Did Mount called!")
+    }
+
+
     onChange(field, value) {
         this.setState({selectedRow:{[field]: value}});
     }
@@ -61,78 +127,78 @@ class Trade extends React.Component {
             return {
                 onClick: e => {
                  
-                    this.setState({ selectedRow:{counterparty:rowInfo.row.counterparty
+                    this.setState({ selectedRow:{counterParty:rowInfo.row.counterParty
                     ,tradeDate:rowInfo.row.tradeDate
-                ,lastName:rowInfo.row.lastName
+                ,commodity:rowInfo.row.commodity
             ,side:rowInfo.row.side,
-            qty:rowInfo.row.qty,
+            quantity:rowInfo.row.quantity,
             price:rowInfo.row.price,
             location:rowInfo.row.location}}  )                }
             }
         }
         
         const columns = [{Header: "Trade Date", accessor: "tradeDate"},
-         {Header: "Commodity",id: "lastName",accessor: "lastName"}, 
+         {Header: "Commodity",accessor: "commodity"},
          {Header: "Side", accessor: "side"},
-          {Header: "Qty(MT)", accessor: "qty"},
+          {Header: "Qty(MT)", accessor: "quantity"},
            {Header: "Price(MT) ",accessor: "price"},
-            {Header: "Counterparty", accessor: "counterparty"},
+            {Header: "Counterparty", accessor: "counterParty"},
          {Header: "Location", accessor: "location"},
          {...defaultColumn,Header: "Delete", accessor: "delete",className: (this.state.deleteshow == true?'showcustom':'hidecustom')}]
 
         // Default table data
-        var data = [{
+        var data1 = [{
             tradeDate: '2018/01/30',
-            lastName: 'AL',
+            commodity: 'AL',
             side: "Buy",
-            qty: 100,
+            quantity: 100,
             price: 180.6,
-            counterparty: "Garlic",
+            counterParty: "Garlic",
             location: "Delhi"
         },
             {
                 tradeDate: '2018/01/30',
-                lastName: 'AL',
+                commodity: 'AL',
                 side: "Buy",
-                qty: 100,
+                quantity: 100,
                 price: 180.6,
-                counterparty: "Fan",
+                counterParty: "Fan",
                 location: "Delhi"
             },
             {
                 tradeDate: '2018/01/30',
-                lastName: 'AL',
+                commodity: 'AL',
                 side: "Buy",
-                qty: 100,
+                quantity: 100,
                 price: 180.6,
-                counterparty: "Yes",
+                counterParty: "Yes",
                 location: "Delhi"
             },
             {
                 tradeDate: '2018/01/30',
-                lastName: 'AL',
+                commodity: 'AL',
                 side: "Buy",
-                qty: 100,
+                quantity: 100,
                 price: 180.6,
-                counterparty: "Jupyter",
+                counterParty: "Jupyter",
                 location: "Delhi"
             },
             {
                 tradeDate: '2018/01/30',
-                lastName: 'AL',
+                commodity: 'AL',
                 side: "Buy",
-                qty: 100,
+                quantity: 100,
                 price: 180.6,
-                counterparty: "Arial",
+                counterParty: "Arial",
                 location: "Delhi"
             },
             {
                 tradeDate: '2018/01/30',
-                lastName: 'AL',
+                commodity: 'AL',
                 side: "Buy",
-                qty: 100,
+                quantity: 100,
                 price: 180.6,
-                counterparty: "Christmas",
+                counterParty: "Christmas",
                 location: "Delhi"
             }];
 
@@ -141,6 +207,20 @@ class Trade extends React.Component {
             e.preventDefault();
             console.log("Clear Button Clicked!")
         }
+
+        // var apiGETRequest = async (filters) => {
+        //     const response = await fetch('http://localhost:3001/allTrades/');
+        //     const body = await response.json();
+        //     if (response.status !== 200) throw Error(body.message);
+        //     return body;
+        // };
+        //
+        // var apiPOSTRequest = async (filters) => {
+        //     const response = await fetch('http://localhost:3001/allTrades/');
+        //     const body = await response.json();
+        //     if (response.status !== 200) throw Error(body.message);
+        //     return body;
+        // };
 
         // Form submit
         var handleSubmit = (e) => {
@@ -162,9 +242,32 @@ class Trade extends React.Component {
             filterValues.location = this.refs.location.state.value
 
             // TODO: Make the api call and re-render the table
-            debugger;
+            // debugger;
 
-           
+            // this.refs.reactTable.filterColumn(this.columns[1], e.target.value)
+            // this.refs.reactTable.filterColumn(columns[5], 'Garlic')
+
+            request.get("http://localhost:3001/allTrades/")
+                .then( (res) => {
+
+                    console.log(res);
+                    var data = JSON.parse(res.text);
+                    debugger
+                    if(data.success !== undefined && data.success){
+                        var tableData = data.data;
+                        this.setState({dataTb:tableData})
+                    }
+                })
+                .catch(function(err) {
+                   console.log("Error occurred in fetching the table details")
+                    // err.message, err.response
+                })
+                // .bind(this);
+
+            // var dataTb = fetchTbData(filterValues);
+
+            // this.setState({dataTb:tableData})
+            // debugger;
         }
 
         return (
@@ -217,15 +320,16 @@ class Trade extends React.Component {
                 </Segment>
                 <div className='column'>
                     <div className="six fields ctmTable">
-                        <ReactTable columns={columns
-                        } data={data} className="-striped -highlight" getTrProps={onRowClick} defaultPageSize={5}/>
+                        <ReactTable ref='reactTable' noDataText="Loading..." columns={columns
+                        } data={this.state.dataTb} className="-striped -highlight" getTrProps={onRowClick} defaultPageSize={5}/>
                         <br/>
                     </div>
                     <div className='four fields tradeDetail ui grid'>
                         <div className='column'>Data Editor</div>
                     </div>
                     <div className='four fields tradeDetail ui grid'>
-                        <Editor className='column' selectedRow={this.state.selectedRow} onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
+                        <Editor className='column' selectedRow={this.state.selectedRow}
+                                onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
                     </div>
                 </div>
 
