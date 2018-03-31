@@ -101,10 +101,25 @@ class Trade extends React.Component {
         this.setState({selectedRow:{[field]: value}});
     }
 
+    // Refreshes the table; Called on submit of the trade details and filter submittion
     refreshTable()
     {
-        console.log("Shaka Laka Boom boom!")
+        console.log("Shaka Laka Boom boom!");
+
+        request.get("http://localhost:3001/allTrades/")
+            .then( (res) => {
+                var data = JSON.parse(res.text);
+                if(data.success !== undefined && data.success){
+                    var tableData = data.data;
+                    this.setState({dataTb:tableData})
+                }
+            })
+            .catch(function(err) {
+                console.log("Error occurred in fetching the table details")
+            })
     }
+
+
     myDefaultCell()
     {
       return 'delete'; 
@@ -252,7 +267,7 @@ class Trade extends React.Component {
                     </div>
                     <div className='four fields tradeDetail ui grid'>
                         <Editor className='column' selectedRow={this.state.selectedRow}
-                                onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
+                             refreshTable={this.refreshTable.bind(this)}   onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
                     </div>
                 </div>
 
