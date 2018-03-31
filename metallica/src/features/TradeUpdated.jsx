@@ -286,3 +286,4 @@ export default Trade;
 // TODO: (s)
 // 1. Move API base URL to a config
 // Way to hide the trade id with clean handling of passing the id
+// One hit of enter after -> Delete is happening instead of update as form submit is bound to both the buttons; Update it

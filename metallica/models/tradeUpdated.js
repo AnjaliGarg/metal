@@ -45,6 +45,18 @@ var tradeSchema = mongo.Schema({
 // Schema Model - Mongoose
 var trade = module.exports=mongo.model('trade',tradeSchema);
 
+
+// Get all trades
+module.exports.fetchFilterValues = function(filterName,res){
+    trade.distinct(filterName,function (err,result) {
+        if(err)
+            res.send({"success":false, "error":"Error Occurred | " + err._message})
+        else
+            res.send({"success":true, "data":result})
+    })
+}
+
+
 // Get all trades
 module.exports.getTrades = function(callback,lim){
   trade.find(callback).limit(lim);
@@ -74,12 +86,43 @@ module.exports.createTrade = function(tradeObj,res){
         });
 }
 
+// Filter trade data based on applied filters
+module.exports.filterTrades = function(tradeObj,res){
+    // Form the filter object
+    filterObj = {};
+
+    if(typeof tradeObj.location !== "undefined" && tradeObj.location !== ''){
+        filterObj.location = tradeObj.location;
+    }
+    if(typeof tradeObj.counterParty !== "undefined" && tradeObj.counterParty !== ''){
+        filterObj.counterParty = tradeObj.counterParty;
+    }
+    if(typeof tradeObj.commodity !== "undefined" && tradeObj.commodity !== ''){
+        filterObj.commodity = tradeObj.commodity;
+    }
+    if(typeof tradeObj.buySide !== "undefined" || tradeObj.sellSide !== "undefined"){
+        // If any one is passed as True and not both
+        if(!tradeObj.buySide || !tradeObj.sellSide){
+            if (tradeObj.sellSide)
+                filterObj.side = "Sell";
+            else
+                filterObj.side = "Buy";
+        }
+    }
+
+    trade.find(filterObj, function (err, result) {
+        if(err)
+            res.send({"success":false, "error":"Error Occurred | " + err._message})
+        else
+            res.send({"success":true, "data":result})
+    })
+}
+
 // Returning updated values but not saving it in db :P
 // This is creating new entry if doc does not exist; Update this
 module.exports.updateTrade = function(tradeObj,res){
   var query={tradeId:tradeObj.tradeId};
-  console.log(query)
-  console.log(tradeObj)
+
   // This needs to be updated
   trade.findOneAndUpdate(query,
       tradeObj,{new: false, upsert: true},function(err, result){

@@ -36,8 +36,6 @@ module.exports = app => {
 
     app.post('/createTrade', function(req, res) {
         var trade = req.body;
-        console.log(trade)
-        console.log("Add entry called")
         Trade.createTrade(trade, res);
     });
 
@@ -51,4 +49,15 @@ module.exports = app => {
         var id = req.params._id;
         Trade.deleteTrade(id,res);
     });
+
+    app.get('/fetchFilterValues/:_filterName', function(req, res) {
+        var filterName = req.params._filterName;
+        Trade.fetchFilterValues(filterName,res);
+    });
+
+    app.post('/filterTrades', function(req, res) {
+        var trade = req.body;
+        Trade.filterTrades(trade, res);
+    });
+
 }
