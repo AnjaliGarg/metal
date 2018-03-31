@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TradeUpdated.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TradeUpdated.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="220" column="54" lean-forward="false" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="54" />
+            <state relative-caret-position="316">
+              <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -29,8 +29,8 @@
       <file leaf-file-name="tradeUpdated.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/tradeUpdated.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="26" />
+            <state relative-caret-position="631">
+              <caret line="86" column="15" lean-forward="true" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
               <folding>
                 <element signature="e#453#1077#0" expanded="false" />
               </folding>
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Editor.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Editor.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+            <state relative-caret-position="284">
+              <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -54,18 +54,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTradesById</find>
-      <find>four fields tradeDetail ui grid</find>
-      <find>delete</find>
       <find>submit</find>
       <find>callApi = async () =&gt; {</find>
       <find>columns</find>
       <find>19</find>
-      <find>onChange</find>
       <find>state</find>
-      <find>submi</find>
       <find>setstate</find>
-      <find>selectedRow</find>
       <find>dataTb</find>
       <find>setState</find>
       <find>props</find>
@@ -82,16 +76,22 @@
       <find>data1</find>
       <find>CounterProperty:</find>
       <find>get</find>
-      <find>counterProperty</find>
       <find>counterP</find>
+      <find>counterProperty</find>
+      <find>delet</find>
+      <find>submi</find>
+      <find>onRowClick</find>
+      <find>selectedRow</find>
+      <find>false</find>
+      <find>onChange</find>
     </findStrings>
     <replaceStrings>
       <replace>ref={'</replace>
       <replace>tradeDb</replace>
       <replace>&quot;success&quot;:false, &quot;error&quot;:&quot;Error Occurred | &quot; +</replace>
       <replace>commodity</replace>
-      <replace>counterParty</replace>
       <replace>quantity</replace>
+      <replace>counterParty</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -102,14 +102,15 @@
         <option value="$PROJECT_DIR$/src/features/Trade.jsx" />
         <option value="$PROJECT_DIR$/projectREADME.md" />
         <option value="$PROJECT_DIR$/routes/trade.js" />
-        <option value="$PROJECT_DIR$/models/tradeUpdated.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/src/components/listOfTrades.js" />
         <option value="$PROJECT_DIR$/src/components/tradeDetails.js" />
-        <option value="$PROJECT_DIR$/src/features/TradeUpdated.jsx" />
+        <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/models/tradeUpdated.js" />
         <option value="$PROJECT_DIR$/src/features/Editor.jsx" />
+        <option value="$PROJECT_DIR$/src/features/TradeUpdated.jsx" />
       </list>
     </option>
   </component>
@@ -224,12 +225,12 @@
       <workItem from="1522385533915" duration="541000" />
       <workItem from="1522386433076" duration="6653000" />
       <workItem from="1522396708268" duration="6586000" />
-      <workItem from="1522493057730" duration="14006000" />
+      <workItem from="1522493057730" duration="17485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63988000" />
+    <option name="totallyTimeSpent" value="67467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1303" height="780" extended-state="6" />
@@ -286,23 +287,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/body-parser/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/tradeUpdated.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="87" column="5" lean-forward="true" selection-start-line="87" selection-start-column="5" selection-end-line="87" selection-end-column="5" />
-          <folding>
-            <element signature="e#453#1077#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/trade.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
@@ -612,16 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/tradeUpdated.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="26" />
-          <folding>
-            <element signature="e#453#1077#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/listOfTrades.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -646,20 +620,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
+    <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="220" column="54" lean-forward="false" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="54" />
+        <state relative-caret-position="396">
+          <caret line="22" column="17" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/tradeUpdated.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="86" column="15" lean-forward="true" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+          <folding>
+            <element signature="e#453#1077#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="2930" column="8" lean-forward="false" selection-start-line="2930" selection-start-column="8" selection-end-line="2930" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="39" column="46" lean-forward="false" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
+    <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+        <state relative-caret-position="316">
+          <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

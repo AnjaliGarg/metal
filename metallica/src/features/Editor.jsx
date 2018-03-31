@@ -5,15 +5,15 @@ class Editor extends React.Component {
 
     constructor(props) {
       super(props);
-  
+
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-  
+
     handleChange(event) {
       this.setState({value: event.target.value});
     }
-  
+
     handleSubmit(event) {
         event.preventDefault();
         debugger;
@@ -25,7 +25,7 @@ class Editor extends React.Component {
             quantity:this.refs.quantity.value,
             price:this.refs.price.value,
             location:this.refs.location.value,
-            tradeId:"268ecf40-340e-11e8-a48a-b716ff5f8e4c"
+            tradeId:this.refs.tradeId.value
         }
 
         request.put("http://localhost:3001/updateTrade/")
@@ -34,8 +34,10 @@ class Editor extends React.Component {
                 debugger
                 var data = JSON.parse(res.text);
                 if(data.success !== undefined && data.success){
-                    var tableData = data.data;
-                    this.setState({dataTb:tableData})
+                    // var tableData = data.data;
+                    // this.setState({dataTb:tableData})
+                    console.log("Data Updated Successfully! Refreshing the table.")
+                    this.props.refreshTable();
                 }
             })
             .catch(function(err) {
@@ -51,7 +53,7 @@ class Editor extends React.Component {
   }
 
 
-   
+
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
@@ -83,7 +85,12 @@ class Editor extends React.Component {
             Location:
             <input type="text" value={this.props.selectedRow.location}  ref='location' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
-          <input type="submit" value="Submit" />
+
+            <div><label>
+            Trade Id:
+            <input disabled ref='tradeId' type="text" value={this.props.selectedRow.tradeId}  />
+            <br/> </label></div>
+        <input type="submit" value="Submit" />
         </form>
       );
     }

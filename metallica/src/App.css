@@ -17,3 +17,8 @@
 	width:35%;
 	float:left
 }
+
+
+.hideTradeId::parent{
+    display: none;
+}

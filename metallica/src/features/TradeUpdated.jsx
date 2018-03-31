@@ -30,7 +30,7 @@ class Trade extends React.Component {
             dateBasedMetric:{},
             uniqueUser:{},
             stepSize:""   ,
-        selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:""},
+        selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:"", tradeId:""},
         deleteshow:false,
             dataTb: [{
             tradeDate: '2018/01/30',
@@ -97,11 +97,14 @@ class Trade extends React.Component {
         console.log("Component Did Mount called!")
     }
 
-
     onChange(field, value) {
         this.setState({selectedRow:{[field]: value}});
     }
-    
+
+    refreshTable()
+    {
+        console.log("Shaka Laka Boom boom!")
+    }
     myDefaultCell()
     {
       return 'delete'; 
@@ -133,7 +136,8 @@ class Trade extends React.Component {
             ,side:rowInfo.row.side,
             quantity:rowInfo.row.quantity,
             price:rowInfo.row.price,
-            location:rowInfo.row.location}}  )                }
+            location:rowInfo.row.location,
+                        tradeId:rowInfo.row.tradeId}}  )                }
             }
         }
         
@@ -144,7 +148,10 @@ class Trade extends React.Component {
            {Header: "Price(MT) ",accessor: "price"},
             {Header: "Counterparty", accessor: "counterParty"},
          {Header: "Location", accessor: "location"},
-         {...defaultColumn,Header: "Delete", accessor: "delete",className: (this.state.deleteshow == true?'showcustom':'hidecustom')}]
+         {...defaultColumn,Header: "Delete", accessor: "delete",
+             className: (this.state.deleteshow == true?'showcustom':'hidecustom')},
+            {Header:"Trade Id", accessor:"tradeId",className:"hideTradeId"}
+             ]
 
         // Reset all the filter values
         var clearFilters = (e) => {
@@ -176,7 +183,6 @@ class Trade extends React.Component {
             request.get("http://localhost:3001/allTrades/")
                 .then( (res) => {
                     var data = JSON.parse(res.text);
-                    debugger
                     if(data.success !== undefined && data.success){
                         var tableData = data.data;
                         this.setState({dataTb:tableData})
@@ -261,3 +267,4 @@ export default Trade;
 
 // TODO: (s)
 // 1. Move API base URL to a config
+// Way to hide the trade id with clean handling of passing the id

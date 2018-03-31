@@ -75,6 +75,7 @@ module.exports.createTrade = function(tradeObj,res){
 }
 
 // Returning updated values but not saving it in db :P
+// This is creating new entry if doc does not exist; Update this
 module.exports.updateTrade = function(tradeObj,res){
   var query={tradeId:tradeObj.tradeId};
   console.log(query)
