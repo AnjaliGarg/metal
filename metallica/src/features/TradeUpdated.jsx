@@ -146,81 +146,11 @@ class Trade extends React.Component {
          {Header: "Location", accessor: "location"},
          {...defaultColumn,Header: "Delete", accessor: "delete",className: (this.state.deleteshow == true?'showcustom':'hidecustom')}]
 
-        // Default table data
-        var data1 = [{
-            tradeDate: '2018/01/30',
-            commodity: 'AL',
-            side: "Buy",
-            quantity: 100,
-            price: 180.6,
-            counterParty: "Garlic",
-            location: "Delhi"
-        },
-            {
-                tradeDate: '2018/01/30',
-                commodity: 'AL',
-                side: "Buy",
-                quantity: 100,
-                price: 180.6,
-                counterParty: "Fan",
-                location: "Delhi"
-            },
-            {
-                tradeDate: '2018/01/30',
-                commodity: 'AL',
-                side: "Buy",
-                quantity: 100,
-                price: 180.6,
-                counterParty: "Yes",
-                location: "Delhi"
-            },
-            {
-                tradeDate: '2018/01/30',
-                commodity: 'AL',
-                side: "Buy",
-                quantity: 100,
-                price: 180.6,
-                counterParty: "Jupyter",
-                location: "Delhi"
-            },
-            {
-                tradeDate: '2018/01/30',
-                commodity: 'AL',
-                side: "Buy",
-                quantity: 100,
-                price: 180.6,
-                counterParty: "Arial",
-                location: "Delhi"
-            },
-            {
-                tradeDate: '2018/01/30',
-                commodity: 'AL',
-                side: "Buy",
-                quantity: 100,
-                price: 180.6,
-                counterParty: "Christmas",
-                location: "Delhi"
-            }];
-
         // Reset all the filter values
         var clearFilters = (e) => {
             e.preventDefault();
             console.log("Clear Button Clicked!")
         }
-
-        // var apiGETRequest = async (filters) => {
-        //     const response = await fetch('http://localhost:3001/allTrades/');
-        //     const body = await response.json();
-        //     if (response.status !== 200) throw Error(body.message);
-        //     return body;
-        // };
-        //
-        // var apiPOSTRequest = async (filters) => {
-        //     const response = await fetch('http://localhost:3001/allTrades/');
-        //     const body = await response.json();
-        //     if (response.status !== 200) throw Error(body.message);
-        //     return body;
-        // };
 
         // Form submit
         var handleSubmit = (e) => {
@@ -242,15 +172,9 @@ class Trade extends React.Component {
             filterValues.location = this.refs.location.state.value
 
             // TODO: Make the api call and re-render the table
-            // debugger;
-
-            // this.refs.reactTable.filterColumn(this.columns[1], e.target.value)
-            // this.refs.reactTable.filterColumn(columns[5], 'Garlic')
 
             request.get("http://localhost:3001/allTrades/")
                 .then( (res) => {
-
-                    console.log(res);
                     var data = JSON.parse(res.text);
                     debugger
                     if(data.success !== undefined && data.success){
@@ -260,14 +184,7 @@ class Trade extends React.Component {
                 })
                 .catch(function(err) {
                    console.log("Error occurred in fetching the table details")
-                    // err.message, err.response
                 })
-                // .bind(this);
-
-            // var dataTb = fetchTbData(filterValues);
-
-            // this.setState({dataTb:tableData})
-            // debugger;
         }
 
         return (
@@ -340,3 +257,7 @@ class Trade extends React.Component {
 }
 
 export default Trade;
+
+
+// TODO: (s)
+// 1. Move API base URL to a config

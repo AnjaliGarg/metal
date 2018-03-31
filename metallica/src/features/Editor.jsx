@@ -1,4 +1,5 @@
 import React from "react";
+import request from "superagent";
 
 class Editor extends React.Component {
 
@@ -15,9 +16,33 @@ class Editor extends React.Component {
   
     handleSubmit(event) {
         event.preventDefault();
-        alert('A name was submitted: ' + this.state.value);
-    } 
-    
+        debugger;
+        var updatedTrade = {
+            counterParty:this.refs.counterParty.value,
+            tradeDate:this.refs.tradeDate.value,
+            commodity:this.refs.commodity.value,
+            side:this.refs.side.value,
+            quantity:this.refs.quantity.value,
+            price:this.refs.price.value,
+            location:this.refs.location.value,
+            tradeId:"268ecf40-340e-11e8-a48a-b716ff5f8e4c"
+        }
+
+        request.put("http://localhost:3001/updateTrade/")
+            .send(updatedTrade)
+            .then( (res) => {
+                debugger
+                var data = JSON.parse(res.text);
+                if(data.success !== undefined && data.success){
+                    var tableData = data.data;
+                    this.setState({dataTb:tableData})
+                }
+            })
+            .catch(function(err) {
+                console.log("Error occurred in fetching the table details")
+            })
+    }
+
     onFieldChange(event) {
       // for a regular input field, read field name and value from the event
       const fieldName = event.target.name;
@@ -31,32 +56,32 @@ class Editor extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            CounterProperty:
-            <input type="text" value={this.props.selectedRow.counterParty} onChange={this.onFieldChange.bind(this)} />
+            CounterParty:
+            <input type="text" value={this.props.selectedRow.counterParty} ref='counterParty' onChange={this.onFieldChange.bind(this)} />
          <br/> </label>
           <label>
-          tradeDate:
-            <input type="text" value={this.props.selectedRow.tradeDate} onChange={this.onFieldChange.bind(this)} />
+          Trade Date:
+            <input type="text" value={this.props.selectedRow.tradeDate}  ref='tradeDate' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          commodity:
-            <input type="text" value={this.props.selectedRow.commodity} onChange={this.onFieldChange.bind(this)} />
+          Commodity:
+            <input type="text" value={this.props.selectedRow.commodity} ref='commodity' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          side:
-            <input type="text" value={this.props.selectedRow.side} onChange={this.onFieldChange.bind(this)} />
+          Side:
+            <input type="text" value={this.props.selectedRow.side} ref='side' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          quantity:
-            <input type="text" value={this.props.selectedRow.quantity} onChange={this.onFieldChange.bind(this)} />
+          Quantity:
+            <input type="text" value={this.props.selectedRow.quantity} ref='quantity' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-          price:
-            <input type="text" value={this.props.selectedRow.price} onChange={this.onFieldChange.bind(this)} />
+          Price:
+            <input type="text" value={this.props.selectedRow.price} ref='price' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <label>
-            CounterProperty:
-            <input type="text" value={this.props.selectedRow.location} onChange={this.onFieldChange.bind(this)} />
+            Location:
+            <input type="text" value={this.props.selectedRow.location}  ref='location' onChange={this.onFieldChange.bind(this)} />
             <br/> </label>
           <input type="submit" value="Submit" />
         </form>

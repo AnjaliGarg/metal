@@ -17,8 +17,8 @@
       <file leaf-file-name="TradeUpdated.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="220" column="54" lean-forward="false" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -41,9 +41,11 @@
       <file leaf-file-name="Editor.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="34" column="69" lean-forward="false" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
-              <folding />
+            <state relative-caret-position="202">
+              <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,11 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tradeDb</find>
-      <find>location</find>
-      <find>deleteTrade</find>
-      <find>odule.exports.deleteTrade</find>
-      <find>&quot;success&quot;: false, &quot;data&quot;:</find>
       <find>getTradesById</find>
       <find>four fields tradeDetail ui grid</find>
       <find>delete</find>
@@ -82,6 +79,11 @@
       <find>.get</find>
       <find>qty</find>
       <find>(MT</find>
+      <find>data1</find>
+      <find>CounterProperty:</find>
+      <find>get</find>
+      <find>counterProperty</find>
+      <find>counterP</find>
     </findStrings>
     <replaceStrings>
       <replace>ref={'</replace>
@@ -222,12 +224,12 @@
       <workItem from="1522385533915" duration="541000" />
       <workItem from="1522386433076" duration="6653000" />
       <workItem from="1522396708268" duration="6586000" />
-      <workItem from="1522493057730" duration="10064000" />
+      <workItem from="1522493057730" duration="14006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60046000" />
+    <option name="totallyTimeSpent" value="63988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1303" height="780" extended-state="6" />
@@ -284,14 +286,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/body-parser/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -644,10 +638,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/Metallica.postman_collection.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="220" column="54" lean-forward="false" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="54" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -656,9 +658,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="34" column="69" lean-forward="false" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
-          <folding />
+        <state relative-caret-position="202">
+          <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
