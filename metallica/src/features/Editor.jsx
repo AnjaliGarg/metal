@@ -1,5 +1,11 @@
 import React from "react";
 import request from "superagent";
+import {
+    Form,
+    Dropdown,
+    Segment,
+    Checkbox, Button
+} from "semantic-ui-react";
 
 class Editor extends React.Component {
 
@@ -8,6 +14,7 @@ class Editor extends React.Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.deleteTrade = this.deleteTrade.bind(this);
     }
 
     handleChange(event) {
@@ -31,13 +38,11 @@ class Editor extends React.Component {
         request.put("http://localhost:3001/updateTrade/")
             .send(updatedTrade)
             .then( (res) => {
-                debugger
                 var data = JSON.parse(res.text);
                 if(data.success !== undefined && data.success){
-                    // var tableData = data.data;
-                    // this.setState({dataTb:tableData})
                     console.log("Data Updated Successfully! Refreshing the table.")
                     this.props.refreshTable();
+                    this.props.onChange("refreshSideDetails", "");
                 }
             })
             .catch(function(err) {
@@ -50,14 +55,39 @@ class Editor extends React.Component {
       const fieldName = event.target.name;
       const fieldValue = event.target.value;
       this.props.onChange(fieldName, fieldValue);
-  }
+    }
 
+    deleteTrade(event){
+        event.preventDefault();
+        event.stopPropagation();
+        debugger;
+        var tradeToDelete = this.refs.tradeId && this.refs.tradeId.value ?this.refs.tradeId.value : undefined;
+        if (typeof tradeToDelete !== "undefined"){
+            console.log("trade id is " + tradeToDelete)
 
+            request.delete("http://localhost:3001/deleteTrade/"+tradeToDelete)
+                .then( (res) => {
+                    debugger;
+                    var data = JSON.parse(res.text);
+                    if(data.success !== undefined && data.success){
+                        // Refresh the table
+                        this.props.refreshTable();
+                    }
+                })
+                .catch(function(err) {
+                    console.log("Error occurred in fetching the table details")
+                })
+        }
+    }
 
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label>
+
+            <Button type="submit"  onClick={this.deleteTrade}>Delete this Trade</Button>
+            <br/>
+            <br/>
+            <label>
             CounterParty:
             <input type="text" value={this.props.selectedRow.counterParty} ref='counterParty' onChange={this.onFieldChange.bind(this)} />
          <br/> </label>

@@ -30,7 +30,7 @@ class Trade extends React.Component {
             dateBasedMetric:{},
             uniqueUser:{},
             stepSize:""   ,
-        selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:"", tradeId:""},
+        selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:"", tradeId:"",refreshSideDetails:""},
         deleteshow:false,
             dataTb: [{
             tradeDate: '2018/01/30',
