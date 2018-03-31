@@ -101,6 +101,9 @@ class Trade extends React.Component {
         this.setState({selectedRow:{[field]: value}});
     }
 
+    refreshSideDetail(){
+        this.setState({selectedRow:{counterParty:"",tradeDate:"",side:"",quantity:"",price:"",commodity:"",location:"", tradeId:"",refreshSideDetails:""}})
+    }
     // Refreshes the table; Called on submit of the trade details and filter submittion
     refreshTable()
     {
@@ -267,7 +270,7 @@ class Trade extends React.Component {
                     </div>
                     <div className='four fields tradeDetail ui grid'>
                         <Editor className='column' selectedRow={this.state.selectedRow}
-                             refreshTable={this.refreshTable.bind(this)}   onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
+                                refreshSideDetail={this.refreshSideDetail.bind(this)} refreshTable={this.refreshTable.bind(this)}   onChange={this.onChange.bind(this)}>Lorem Ipssum</Editor>
                     </div>
                 </div>
 

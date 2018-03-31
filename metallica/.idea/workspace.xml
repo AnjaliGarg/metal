@@ -17,8 +17,8 @@
       <file leaf-file-name="TradeUpdated.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="32" column="116" lean-forward="true" selection-start-line="32" selection-start-column="116" selection-end-line="32" selection-end-column="116" />
+            <state relative-caret-position="212">
+              <caret line="272" column="127" lean-forward="false" selection-start-line="272" selection-start-column="127" selection-end-line="272" selection-end-column="127" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="Editor.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="44" column="63" lean-forward="false" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+            <state relative-caret-position="356">
+              <caret line="72" column="48" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -54,11 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>19</find>
-      <find>state</find>
-      <find>setstate</find>
-      <find>dataTb</find>
-      <find>setState</find>
       <find>props</find>
       <find>You need to enable JavaScript to run this app.</find>
       <find>3001</find>
@@ -78,20 +73,25 @@
       <find>delet</find>
       <find>submi</find>
       <find>onRowClick</find>
-      <find>selectedRow</find>
       <find>false</find>
       <find>onChan</find>
       <find>data editor</find>
       <find>onChange</find>
       <find>refres</find>
+      <find>selectedRow</find>
+      <find>refre</find>
+      <find>deleteTrade</find>
+      <find>table</find>
+      <find>refreshSideDetail</find>
+      <find>this.props.refreshTable(</find>
     </findStrings>
     <replaceStrings>
       <replace>ref={'</replace>
       <replace>tradeDb</replace>
       <replace>&quot;success&quot;:false, &quot;error&quot;:&quot;Error Occurred | &quot; +</replace>
       <replace>commodity</replace>
-      <replace>counterParty</replace>
       <replace>quantity</replace>
+      <replace>counterParty</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -109,8 +109,8 @@
         <option value="$PROJECT_DIR$/src/components/tradeDetails.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/models/tradeUpdated.js" />
-        <option value="$PROJECT_DIR$/src/features/TradeUpdated.jsx" />
         <option value="$PROJECT_DIR$/src/features/Editor.jsx" />
+        <option value="$PROJECT_DIR$/src/features/TradeUpdated.jsx" />
       </list>
     </option>
   </component>
@@ -225,12 +225,12 @@
       <workItem from="1522385533915" duration="541000" />
       <workItem from="1522386433076" duration="6653000" />
       <workItem from="1522396708268" duration="6586000" />
-      <workItem from="1522493057730" duration="19984000" />
+      <workItem from="1522493057730" duration="21966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69966000" />
+    <option name="totallyTimeSpent" value="71948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1303" height="780" extended-state="6" />
@@ -648,8 +648,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/features/TradeUpdated.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="32" column="116" lean-forward="true" selection-start-line="32" selection-start-column="116" selection-end-line="32" selection-end-column="116" />
+        <state relative-caret-position="212">
+          <caret line="272" column="127" lean-forward="false" selection-start-line="272" selection-start-column="127" selection-end-line="272" selection-end-column="127" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -658,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/features/Editor.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="44" column="63" lean-forward="false" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+        <state relative-caret-position="356">
+          <caret line="72" column="48" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

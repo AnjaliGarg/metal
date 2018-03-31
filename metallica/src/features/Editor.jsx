@@ -42,7 +42,6 @@ class Editor extends React.Component {
                 if(data.success !== undefined && data.success){
                     console.log("Data Updated Successfully! Refreshing the table.")
                     this.props.refreshTable();
-                    this.props.onChange("refreshSideDetails", "");
                 }
             })
             .catch(function(err) {
@@ -72,6 +71,8 @@ class Editor extends React.Component {
                     if(data.success !== undefined && data.success){
                         // Refresh the table
                         this.props.refreshTable();
+                        this.props.refreshSideDetail()
+                        // this.props.onChange("refreshSideDetails", "");
                     }
                 })
                 .catch(function(err) {
